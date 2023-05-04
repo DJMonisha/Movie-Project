@@ -54,24 +54,26 @@ input{
 	outline: none;
 	border-radius: 5px;
 }
-button{
+.btn{
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
 	justify-content: center;
 	display: block;
-	color: #fff;
-	background: #573b8a;
+	color: black;
+	background:none;
 	font-size: 1em;
 	font-weight: bold;
 	margin-top: 20px;
 	outline: none;
 	border: none;
-	border-radius: 5px;
+	border-radius: 10px;
 	transition: .2s ease-in;
 	cursor: pointer;
+	
+	
 }
-button:hover{
+.btn button:hover{
 	background: #6d44b8;
 }
 .login{
@@ -95,6 +97,9 @@ button:hover{
 #chk:checked ~ .signup label{
 	transform: scale(.6);
 }
+
+
+
 a.no-underline{
 	text-decoration: none;
 }
@@ -102,34 +107,34 @@ a.no-underline{
 <body>
 	<div class="main">  	
 		<input type="checkbox" id="chk" aria-hidden="true">
-
-			<div class="signup">
-				<form name="signup" onsubmit="return signup()" method="post">
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="txt" placeholder="User name" required="" name="phone number">
-					<input type="email" name="email" placeholder="Email" required="" name="contact details">
-					<input type="password" name="pswd" placeholder="Password" required="" name="follow us on">
-					<a href="index.html" class="no-underline">
-					<button>Sign up</button>
-					</a>
-				</form>
-			</div>
+		<div class="signup">
+			<form name="signup" onsubmit="return signup()" method="post">
+				<label for="chk" aria-hidden="true">Sign up</label>
+				<input type="text" name="txt" placeholder="User name" required="" name="phone number">
+				<input type="email" name="email" placeholder="Email" required="" name="contact details">
+				<input type="password" name="pswd" placeholder="Password" required="" name="follow us on">
+				<div class="btn">
+				<a href="index.html" class="no-underline">
+				<input type="button" value="Sign up"></a></div>
+			</form>
+		</div>
 
 			<div class="login">
-				<form name="login" onsubmit="return loginform()" method="post">
+				<form name="form" onsubmit="return loginform()" method="post">
 					<label for="chk" aria-hidden="true">Login</label>
 					<input type="email" name="email" placeholder="Email"  name="email">
-					<input type="password" name="pswd" placeholder="Password"  name="password">
+					<input type="password" name="pswd" placeholder="Password"  name="psw">
+					<div class="btn">
 					<a href="index.html" class="no-underline">
-					<button>Login</button>
-					</a>
+					<input type="button" value="Login"></a></div>
+
 				</form>
 			</div>
 	</div>
       <script>
         function loginform(){
-        let a = document.forms["login"]["email"].value;
-        let b = document.forms["login"]["password"].value;
+        let a = document.forms["form"]["email"].value;
+        let b = document.forms["form"]["psw"].value;
         if(a!="cute@gmail.com" || b!="2004") 
         {
           alert("Incorrect Password");
@@ -138,7 +143,7 @@ a.no-underline{
         }
         else{
             alert("login success");
-            window.location.href="index.html";
+            window.location="index.html";
           return false;
         }
         }
